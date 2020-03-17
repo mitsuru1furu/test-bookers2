@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+     <% if user_signed_in? %>
+        <li class="">
+          <%= link_to "ユーザーズ","/users"%>
+          <%= link_to "本", "/" %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          <%= link_to 'マイページ', user_path(current_user.id) %>
+          <%= link_to "プロフィール編集", edit_user_path(current_user.id)%>
+        </li>
+      <% else %>
+          <%= link_to "新規登録", new_user_registration_path %>
+          <%= link_to "ログイン", new_user_session_path %>
+      <%end%>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+<div class="profile-container">
+    <h3 class="profile-name"><%= @user.name %></h3>
+   
+</div>
+<% @books.each do |book| %>
+<%= book.title%>
+<%= book.body%>
+<% end %>
+<section class="sct-color-1 slice">
+  <div class="container-fluid masonry-container">
+    <div class="row">
+    	<%= link_to "プロフィール編集", edit_user_path(@user)%>
